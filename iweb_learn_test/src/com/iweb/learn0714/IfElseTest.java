@@ -6,7 +6,7 @@ package com.iweb.learn0714;
  */
 import java.util.Scanner;
 
-public class Review {
+public class IfElseTest {
     public static void main(String[] args){
 //        Scanner scan = new Scanner(System.in);
 //        System.out.println("请输入密码：");
