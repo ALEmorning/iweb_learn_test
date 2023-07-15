@@ -1,54 +1,22 @@
-package com.iweb.learn0714;
+package com.iweb.learn0715;
 /*
-*
-* 扑克牌形式的数组测试
-* @time 2023.7.14
+* 通过数组的拷贝实现
+* 扑克牌游戏测试进阶版
+* @time  2023.7.15
  */
-
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
-public class PokerGame {
+public class PokerGames {
     String[] box = new String[54];
     //发牌
     String[] playA = new String[18];
     String[] playB = new String[18];
     String[] playC = new String[18];
-
-    public void CreateCard(){
-        String[] suits = {"♠", "♥", "♣", "♦"};
-        String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-
-        int numSuits = suits.length;
-        int numRanks = ranks.length;
-
-        int count = 0; // 计数器
-
-        for (int suitIndex = 0; suitIndex < numSuits; suitIndex++) {
-            for (int rankIndex = 0; rankIndex < numRanks; rankIndex++) {
-                System.out.print(suits[suitIndex] + ranks[rankIndex] + " ");
-                count++;
-
-                if (count >= numRanks * (numSuits - 1)) {
-                    break;
-                }
-
-                if (count % numRanks == 0) {
-                    System.out.println();
-                }
-
-                if (count == numRanks * (numSuits - 1)) {
-                    System.out.println(suits[numSuits - 1] + "Joker");
-                }
-            }
-        }
-    }
-
-
     public void CreateCardA(){
-
         int count = 0;
         for ( int i = 1 ;i<=13;i++ ){
             String cn = "";
@@ -118,35 +86,52 @@ public class PokerGame {
 
     }
     public void Publish(){
-        int count = 0;
-        int idx = 0;
-        while ( true ){
-            switch ( count % 3 ){
-                case 0:
-                    playA[idx] = box[count];
-                    break;
-                case 1:
-                    playB[idx] = box[count];
-                    break;
-                case 2:
-                    playC[idx] = box[count];
-                    idx++;
-                    break;
-            }
-            count++;
-            if ( count == box.length )
-                break;
+        Random r = new Random();
+        int t_idx = 0;
+        while ( box.length > 0 ){
+           int idx = r.nextInt(box.length);
+           String card = box[idx];
+
+           switch ( box.length % 3 ){
+               case 0:
+                   playA[t_idx]=card;
+                   break;
+               case 2:
+                   playB[t_idx]=card;
+                   break;
+               case 1:
+                   playC[t_idx]=card;
+                   t_idx++;
+                   break;
+           }
+           //将牌移除
+           String[] temp = new String[box.length-1];
+           System.arraycopy(box,0,temp,0,idx);
+           System.arraycopy(box,idx+1,temp,idx,temp.length-idx);
+           box = temp;
         }
+
+
+
     }
+
     public void ShowCards(){
         System.out.print("PlayA: ");
         for ( String every : Arrays.asList(playA) ){
             System.out.print("   "+every);
         }
+        System.out.print("\nPlayB: ");
+        for ( String every : Arrays.asList(playB) ){
+            System.out.print("   "+every);
+        }
+        System.out.print("\nPlayC: ");
+        for ( String every : Arrays.asList(playC) ){
+            System.out.print("   "+every);
+        }
     }
 
     public static void main(String[] args){
-        PokerGame pg = new PokerGame();
+        PokerGames pg = new PokerGames();
         pg.CreateCardA();
         //发牌
         pg.Publish();
