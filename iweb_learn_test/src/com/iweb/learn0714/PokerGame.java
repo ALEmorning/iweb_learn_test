@@ -141,7 +141,15 @@ public class PokerGame {
     public void ShowCards(){
         System.out.print("PlayA: ");
         for ( String every : Arrays.asList(playA) ){
-            System.out.print("   "+every);
+            System.out.print("\t"+every);
+        }
+        System.out.print("\nPlayB: ");
+        for ( String every : Arrays.asList(playB) ){
+            System.out.print("\t"+every);
+        }
+        System.out.print("\nPlayC: ");
+        for ( String every : Arrays.asList(playC) ){
+            System.out.print("\t"+every);
         }
     }
 
