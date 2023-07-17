@@ -17,7 +17,7 @@ public class PokerGame {
     String[] playB = new String[18];
     String[] playC = new String[18];
 
-    public void CreateCard(){
+    public void createCard(){
         String[] suits = {"♠", "♥", "♣", "♦"};
         String[] ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 
@@ -47,7 +47,7 @@ public class PokerGame {
     }
 
 
-    public void CreateCardA(){
+    public void createCardA(){
 
         int count = 0;
         for ( int i = 1 ;i<=13;i++ ){
@@ -117,7 +117,7 @@ public class PokerGame {
 
 
     }
-    public void Publish(){
+    public void publish(){
         int count = 0;
         int idx = 0;
         while ( true ){
@@ -138,7 +138,7 @@ public class PokerGame {
                 break;
         }
     }
-    public void ShowCards(){
+    public void showCards(){
         System.out.print("PlayA: ");
         for ( String every : Arrays.asList(playA) ){
             System.out.print("\t"+every);
@@ -155,12 +155,12 @@ public class PokerGame {
 
     public static void main(String[] args){
         PokerGame pg = new PokerGame();
-        pg.CreateCardA();
+        pg.createCardA();
         //发牌
-        pg.Publish();
+        pg.publish();
 
         //ShowCards
-        pg.ShowCards();
+        pg.showCards();
 
 
 

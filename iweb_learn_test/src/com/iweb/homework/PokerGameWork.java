@@ -17,13 +17,13 @@ public class PokerGameWork {
 
     public static void main( String[] args ) {
         PokerGameWork pw = new PokerGameWork();
-        pw.CreateCards();//创建扑克牌，将其存入box
-        pw.Publisher();//发牌
-        pw.ShowCards();//展示手牌
+        pw.createCards();//创建扑克牌，将其存入box
+        pw.publisher();//发牌
+        pw.showCards();//展示手牌
 
     }
 
-    public void CreateCards(){//将所有牌存入二维数组
+    public void createCards(){//将所有牌存入二维数组
         int count = 0;
         for ( int i = 1 ;i<=13;i++ ){
             String cn = "";
@@ -61,7 +61,7 @@ public class PokerGameWork {
         }
     }
 
-    public void Publisher(){//将牌按照 A B C 的形式随机发放
+    public void publisher(){//将牌按照 A B C 的形式随机发放
         Random r = new Random();
         int t_idx = 0;
         while ( box.length > 0 ){
@@ -88,10 +88,10 @@ public class PokerGameWork {
         }
     }
 
-    public void ShowCards(){
-        Sorter(playA);
-        Sorter(playB);
-        Sorter(playC);
+    public void showCards(){
+        sorter(playA);
+        sorter(playB);
+        sorter(playC);
 
         System.out.print("\nPlayerA: ");
         for(String[] every : playA) {
@@ -108,7 +108,7 @@ public class PokerGameWork {
 
     }
 
-    public void Sorter(String[][] player) {//对玩家手牌进行冒泡排序，降序排列
+    public void sorter(String[][] player) {//对玩家手牌进行冒泡排序，降序排列
         for(int i = 0; i< player.length; i++) {
             for(int j = player.length - 1; j > 0; j--) {
                 String[] c1 = player[j];

@@ -16,7 +16,7 @@ public class PokerGames {
     String[][] playA = new String[18][];
     String[][] playB = new String[18][];
     String[][] playC = new String[18][];
-    public void CreateCardA(){
+    public void createCardA(){
         int count = 0;
         for ( int i = 1 ;i<=13;i++ ){
             String cn = "";
@@ -83,7 +83,7 @@ public class PokerGames {
 
 
     }
-    public void Publish(){
+    public void publish(){
         Random r = new Random();
         int t_idx = 0;
         while ( box.length > 0 ){
@@ -111,7 +111,7 @@ public class PokerGames {
 
     }
 
-    public void ShowCards(){
+    public void showCards(){
         sorter(playA);
         sorter(playB);
         sorter(playC);
@@ -172,12 +172,12 @@ public class PokerGames {
 
     public static void main(String[] args){
         PokerGames pg = new PokerGames();
-        pg.CreateCardA();
+        pg.createCardA();
         //发牌
-        pg.Publish();
+        pg.publish();
 
         //ShowCards
-        pg.ShowCards();
+        pg.showCards();
 
 
 

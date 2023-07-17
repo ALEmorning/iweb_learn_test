@@ -26,7 +26,7 @@ public class GroupCopyTest {
             }
         }
     }
-    public void Shrink(){
+    public void shrink(){
         String[] base = new String[] {"A","B","C","D","E","F"};
 
         String[] ng = new String[base.length-1];
@@ -41,7 +41,7 @@ public class GroupCopyTest {
 
     }
     //随机
-    public void Rank(){
+    public void rank(){
         Random r = new Random();
         r.nextInt(10);//0~9
 
@@ -51,7 +51,7 @@ public class GroupCopyTest {
     public static void main(String[] args){
         GroupCopyTest gc = new GroupCopyTest();
 //        gc.test();
-        gc.Shrink();;
+        gc.shrink();;
 
     }
 }

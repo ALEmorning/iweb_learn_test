@@ -71,7 +71,7 @@ public class GroupTest {
         }
 
     }
-    public void CreatA(){
+    public void creatA(){
         String[] pokerDeck = new String[54];
         // 创建花色数组和数字数组
         String[] suits = {"♠", "♥", "♣", "♦"};
@@ -99,6 +99,6 @@ public class GroupTest {
     public static void main(String[] args){
         GroupTest t1 = new GroupTest();
         t1.testA();
-//        t1.CreatA();
+//        t1.creatA();
     }
 }

@@ -13,30 +13,29 @@ public class PlayerInfo {
     int count = 1;
     public static void main( String[] args ) {
         PlayerInfo pi = new PlayerInfo();
-        pi.MainPage();
-
-
+        pi.mainPage();
     }
-    public void MainPage(){//功能主界面，供用户选择功能
+    public void mainPage(){//功能主界面，供用户选择功能
         int option;
         System.out.println("欢迎来到用户界面：");
         System.out.println("请选择功能：1、添加用户信息；2、查看所有用户信息；3、退出");
         option = scan.nextInt();
         switch ( option ){
             case 1:
-                InsertInfo();
+                insertInfo();
                 break;
             case 2:
-                ShowInfo();
+                showInfo();
                 break;
             case 3:
                 System.out.println("谢谢使用，您已成功退出。");
+                System.exit(0);
                 return;
             default:
                 System.out.println("请选择正确的功能。");
         }
     }
-    public void InsertInfo(){
+    public void insertInfo(){
         String name = new String();//用户相关信息，共三项：账号、密码、姓名
         String password = new String();
         String mingcheng = new String();
@@ -66,15 +65,15 @@ public class PlayerInfo {
         System.out.println("是否继续添加信息：y/n");
         option = scan.next();
         if ( "y".equals(option) ){
-            InsertInfo();//递归调用
+            insertInfo();//递归调用
         }else {
             System.out.println("您已退出！");
-            MainPage();
+            mainPage();
         }
     }
 
 
-    public void ShowInfo(){
+    public void showInfo(){
         playerInfo[0] = new String[]{"账号","密码","姓名"};//首行信息，给予用户提示，列名
         System.out.println("用户信息：");
         System.out.print("账号\t\t"+"\t"+"密码\t"+"\t\t"+"姓名\n");
@@ -83,6 +82,6 @@ public class PlayerInfo {
                 System.out.print(playerInfo[i][0] + "\t\t" + playerInfo[i][1] + "\t\t" + playerInfo[i][2] + "\n");
             }
         }
-        MainPage();
+        mainPage();
     }
 }

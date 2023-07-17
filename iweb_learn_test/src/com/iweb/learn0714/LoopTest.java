@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class LoopTest {
     //for 循环
-    public void TriangleTest1(){//左下直角三角形
+    public void triangleTest1(){//左下直角三角形
         int rows = 8; // 三角形的行数
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j <= i; j++) {
@@ -17,7 +17,7 @@ public class LoopTest {
         }
     }
 
-    public void TriangleTest2(){//左上直角三角形
+    public void triangleTest2(){//左上直角三角形
         int rows = 8; // 三角形的行数
         for (int i = 0; i < rows; i++) {
             for (int j = rows - i; j > 0; j--) {
@@ -27,7 +27,7 @@ public class LoopTest {
         }
     }
 
-    public void TriangleTest3(){//右下直角三角形
+    public void triangleTest3(){//右下直角三角形
         int rows = 5; // 三角形的行数
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < rows - i - 1; j++) {
@@ -39,7 +39,7 @@ public class LoopTest {
             System.out.println(); // 换行
         }
     }
-    public void TriangleTest4(){//等腰
+    public void triangleTest4(){//等腰
         int rows = 5; // 三角形的行数
         for (int i = 0; i < rows; i++) {
             for (int j = rows - i - 1; j > 0; j--) {
@@ -51,7 +51,7 @@ public class LoopTest {
             System.out.println();
         }
     }
-    public void TriangleTest5(){//菱形
+    public void triangleTest5(){//菱形
         int rows = 5; // 菱形的行数
 
         for (int i = 0; i < rows; i++) {
@@ -74,7 +74,7 @@ public class LoopTest {
             System.out.println();
         }
     }
-    public void CreateA(int height) {
+    public void createA(int height) {
         int bottom = height * 2 + 1;
 
         for ( int i = 0; i <= height; i++ ) {
@@ -101,7 +101,7 @@ public class LoopTest {
         }
 
     }
-    public void CreateB(){
+    public void createB(){
 
         Scanner scan = new Scanner(System.in);
 
@@ -143,7 +143,7 @@ public class LoopTest {
             }
         }
     }
-    public void CreateC(){
+    public void createC(){
         int base = new Random().nextInt(100);
         Scanner scan = new Scanner(System.in);
         int count = 0;
@@ -162,7 +162,7 @@ public class LoopTest {
             }
         }
     }
-    public void CreateD(){
+    public void createD(){
         do {
             System.out.println("Hello");
         }while ( false );
@@ -171,22 +171,22 @@ public class LoopTest {
     public static void main(String[] args){
         LoopTest t1 = new LoopTest();
 //        System.out.println("左下直角三角形");
-//        t1.TriangleTest1();
+//        t1.triangleTest1();
 //        System.out.println("------------------------");
 //        System.out.println("左上直角三角形");
-//        t1.TriangleTest2();
+//        t1.triangleTest2();
 //        System.out.println("------------------------");
 //        System.out.println("右下直角三角形");
-//        t1.TriangleTest3();
+//        t1.triangleTest3();
 //        System.out.println("------------------------");
 //        System.out.println("等腰三角形");
-//        t1.TriangleTest4();
+//        t1.triangleTest4();
 //        System.out.println("------------------------");
 //        System.out.println("菱形");
-//        t1.TriangleTest5();
+//        t1.triangleTest5();
 //        System.out.println("------------------------");
-//        t1.CreateA(8);
-//        t1.CreateB();
-        t1.CreateC();
+//        t1.createA(8);
+//        t1.createB();
+        t1.createC();
     }
 }
