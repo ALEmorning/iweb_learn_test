@@ -1,13 +1,10 @@
 package com.iweb.learn0715;
 /*
-* 通过数组的拷贝实现
-* 扑克牌游戏测试进阶版
-* @time  2023.7.15
+ * 通过数组的拷贝实现
+ * 扑克牌游戏测试进阶版
+ * @time  2023.7.15
  */
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class PokerGames {
@@ -16,13 +13,14 @@ public class PokerGames {
     String[][] playA = new String[18][];
     String[][] playB = new String[18][];
     String[][] playC = new String[18][];
-    public void createCardA(){
+
+    public void createCardA() {
         int count = 0;
-        for ( int i = 1 ;i<=13;i++ ){
+        for ( int i = 1; i <= 13; i++ ) {
             String cn = "";
-            switch ( i ){
+            switch ( i ) {
                 case 1:
-                    cn="A";
+                    cn = "A";
                     break;
                 case 11:
                     cn = "J";
@@ -34,20 +32,17 @@ public class PokerGames {
                     cn = "K";
                     break;
                 default:
-                    cn = i+"";
+                    cn = i + "";
             }
-            box[count++] = new String[] {"♠",cn};
-            box[count++] = new String[] {"♥",cn};
-            box[count++] = new String[] {"♣",cn};
-            box[count++] = new String[] {"♦",cn};
+            box[count++] = new String[] { "♠", cn };
+            box[count++] = new String[] { "♥", cn };
+            box[count++] = new String[] { "♣", cn };
+            box[count++] = new String[] { "♦", cn };
 
 
         }
-        box[52] = new String[] {"♥小王","66"};
-        box[53] = new String[] {"♠大王","88"};
-
-
-
+        box[52] = new String[] { "♥小王", "66" };
+        box[53] = new String[] { "♠大王", "88" };
 
 
 //        //在已有扑克牌中，将牌分发给三个用户，以 ABC,ABC轮巡的方式分发
@@ -83,73 +78,76 @@ public class PokerGames {
 
 
     }
-    public void publish(){
+
+    public void publish() {
         Random r = new Random();
         int t_idx = 0;
-        while ( box.length > 0 ){
-           int idx = r.nextInt(box.length);
-           String[] card = box[idx];
+        while ( box.length > 0 ) {
+            int idx = r.nextInt(box.length);
+            String[] card = box[idx];
 
-           switch ( box.length % 3 ){
-               case 0:
-                   playA[t_idx]=card;
-                   break;
-               case 2:
-                   playB[t_idx]=card;
-                   break;
-               case 1:
-                   playC[t_idx]=card;
-                   t_idx++;
-                   break;
-           }
-           //将牌移除
-           String[][] temp = new String[box.length-1][];
-           System.arraycopy(box,0,temp,0,idx);
-           System.arraycopy(box,idx+1,temp,idx,temp.length-idx);
-           box = temp;
+            switch ( box.length % 3 ) {
+                case 0:
+                    playA[t_idx] = card;
+                    break;
+                case 2:
+                    playB[t_idx] = card;
+                    break;
+                case 1:
+                    playC[t_idx] = card;
+                    t_idx++;
+                    break;
+            }
+            //将牌移除
+            String[][] temp = new String[box.length - 1][];
+            System.arraycopy(box, 0, temp, 0, idx);
+            System.arraycopy(box, idx + 1, temp, idx, temp.length - idx);
+            box = temp;
         }
 
     }
 
-    public void showCards(){
+    public void showCards() {
         sorter(playA);
         sorter(playB);
         sorter(playC);
 
         System.out.print("PlayerA: ");
-        for(String[] every : playA) {
-            System.out.print(every[0]+every[1]+"\t");
+        for ( String[] every : playA ) {
+            System.out.print(every[0] + every[1] + "\t");
         }
         System.out.print("\nPlayerB: ");
-        for(String[] every : playB) {
-            System.out.print(every[0]+every[1]+"\t");
+        for ( String[] every : playB ) {
+            System.out.print(every[0] + every[1] + "\t");
         }
         System.out.print("\nPlayerC: ");
-        for(String[] every : playC) {
-            System.out.print(every[0]+every[1]+"\t");
+        for ( String[] every : playC ) {
+            System.out.print(every[0] + every[1] + "\t");
         }
 
     }
-    public void sorter(String[][] player){
-        for(int i = 0; i< player.length; i++) {
-            for(int j = 0; j < player.length - i -1; j++) {
+
+    public void sorter( String[][] player ) {
+        for ( int i = 0; i < player.length; i++ ) {
+            for ( int j = 0; j < player.length - i - 1; j++ ) {
                 String[] c1 = player[j];
-                String[] c2 = player[j+1];
+                String[] c2 = player[j + 1];
 
                 int a = covert(c1[1]);
                 int b = covert(c2[1]);
 
-                if(a > b) {
+                if ( a > b ) {
                     player[j] = c2;
-                    player[j+1] = c1;
+                    player[j + 1] = c1;
                 }
 
             }
         }
 
     }
-    public int covert(String value){
-        switch(value) {
+
+    public int covert( String value ) {
+        switch ( value ) {
             case "A":
                 return 14;
             case "2":
@@ -168,9 +166,7 @@ public class PokerGames {
     }
 
 
-
-
-    public static void main(String[] args){
+    public static void main( String[] args ) {
         PokerGames pg = new PokerGames();
         pg.createCardA();
         //发牌
@@ -178,8 +174,6 @@ public class PokerGames {
 
         //ShowCards
         pg.showCards();
-
-
 
 
     }
